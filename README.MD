@@ -32,7 +32,7 @@ Scripts for preparing data
 python run.py
 ```
 ## Test
-### hypony prediction
+### hyponym prediction
 ```bash
 python test_hypo_scorer.py
 ```
