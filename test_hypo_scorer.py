@@ -28,7 +28,7 @@ num_labels = 2
 hidden_size = 768
 model = HypoSelector(num_labels, hidden_size)
 
-model_save_filepath = "checkpoints/23.pth"
+model_save_filepath = "checkpoints/hypo_selector/100.pth"
 state = torch.load(model_save_filepath)
 model.load_state_dict(state['state_dict'])
 

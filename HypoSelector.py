@@ -2,19 +2,20 @@ import torch
 import torch.nn as nn
 import numpy as np
 import torch.nn.functional as F
-from transformers import BertModel
+from transformers import BertModel, BertTokenizer
 
 class HypoSelector(nn.Module):
 	def __init__(self, num_labels=2, hidden_size=768, temperature = torch.tensor([0.0])):
-		super(HypoSelector, self).__init__()
-		self.num_labels = num_labels
-		self.device = None
-		self.embedding_size = hidden_size
-		self.bert = BertModel.from_pretrained('bert-base-uncased')
-		self.embedding = self.bert.get_input_embeddings()
-		self.fc = nn.Linear(hidden_size,512)
-		self.fc1 = nn.Linear(hidden_size,512)
-		self.bce = nn.BCEWithLogitsLoss(reduction="sum")
+            super(HypoSelector, self).__init__()
+            self.num_labels = num_labels
+            self.device = None
+            self.embedding_size = hidden_size
+            self.bert = BertModel.from_pretrained('bert-base-uncased')
+            self.tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+            self.embedding = self.bert.get_input_embeddings()
+            self.fc = nn.Linear(hidden_size,512)
+            self.fc1 = nn.Linear(hidden_size,512)
+            self.bce = nn.BCEWithLogitsLoss(reduction="sum")
 
 
 	def forward(self, data):
