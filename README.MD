@@ -4,8 +4,8 @@ Query reformulation based on hyponym-hypernym relations.
 ## Installation 
 
 ### Requirement 
-Python 3.6
-Pytorch 1.4 
+Python 3.6  
+Pytorch 1.4  
 
 ```bash
 conda create -n qr_vqa python=3.6
